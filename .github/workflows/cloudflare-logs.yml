@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Wait for CF Pages
         id: cf-pages
-        uses: Wissididom/cf-pages-await@fix-set-output-deprecation
+        uses: Wissididom/cf-pages-await@drop-node-fetch
         with:
           apiToken: ${{ secrets.CF_LOG_TOKEN  }}
           accountId: ${{ secrets.CF_ACCOUNT_ID }}
