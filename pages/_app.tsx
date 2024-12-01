@@ -32,13 +32,13 @@ function MyApp({ Component, pageProps }: Props) {
         <link
           rel="alternate"
           type="application/json+oembed"
-          href={`${defaultMeta.url}/api/oembed.json`}
+          href={`${defaultMeta.url}/oembed.json`}
           title={defaultMeta.title}
         />
         <link
           rel="alternate"
           type="text/xml+oembed"
-          href={`${defaultMeta.url}/api/oembed.xml`}
+          href={`${defaultMeta.url}/oembed.xml`}
           title={defaultMeta.title}
         />
       </Head>
