@@ -13,8 +13,9 @@ type Props = {
 function MyApp({ Component, pageProps }: Props) {
   const defaultMeta = {
     title: "Chatterino",
-    description: "Chatterino is a chat client for Twitch chat. It aims to be an improved/extended version of the Twitch web chat.",
-    image: 'logo.png',
+    description:
+      "Chatterino is a chat client for Twitch chat. It aims to be an improved/extended version of the Twitch web chat.",
+    image: "logo.png",
     url: 'https://chatterino.com'
   };
   return (
