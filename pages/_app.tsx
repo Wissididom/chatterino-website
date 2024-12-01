@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps }: Props) {
     description:
       "Chatterino is a chat client for Twitch chat. It aims to be an improved/extended version of the Twitch web chat.",
     image: "logo.png",
-    url: 'https://chatterino.com'
+    url: "https://chatterino.com",
   };
   return (
     <div>
@@ -29,6 +29,18 @@ function MyApp({ Component, pageProps }: Props) {
         <meta property="og:image" content={defaultMeta.image} />
         <meta property="og:url" content={defaultMeta.url} />
         <meta property="og:type" content="website" />
+        <link
+          rel="alternate"
+          type="application/json+oembed"
+          href={`${defaultMeta.url}/api/oembed.json`}
+          title={defaultMeta.title}
+        />
+        <link
+          rel="alternate"
+          type="text/xml+oembed"
+          href={`${defaultMeta.url}/api/oembed.xml`}
+          title={defaultMeta.title}
+        />
       </Head>
 
       <main className="text-white bg-gray-800" style={{ minHeight: "100vh" }}>
