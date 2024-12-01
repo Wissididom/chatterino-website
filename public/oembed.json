@@ -1,0 +1,11 @@
+{
+  "version": "1.0",
+  "type": "link",
+  "title": "Chatterino",
+  "author_name": "Chatterino Team",
+  "provider_name": "Chatterino",
+  "provider_url": "https://chatterino.com",
+  "thumbnail_url": "https://chatterino.com/logo.png",
+  "thumbnail_width": 300,
+  "thumbnail_height": 300
+}
