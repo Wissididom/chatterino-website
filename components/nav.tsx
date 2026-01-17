@@ -30,20 +30,20 @@ function Nav() {
         style={{ zIndex: 10, height: 80 }}
       >
         <div
-          className="max-w-screen-xl w-full flex justify-between"
+          className="max-w-320 w-full flex justify-between"
           style={{ margin: "0 auto" }}
         >
           {/* logo */}
           <a href="/" className="no-underline">
             <div className="flex items-center text-white hover:text-blue-400 p-4 sm:p-6 space-x-4 sm:pr-0">
-              <img src="logo.png" className="w-8 h-8" />
+              <img src="logo.svg" className="w-8 h-8" />
               <div>Chatterino</div>
             </div>
           </a>
 
           {/* expand button */}
           {/* <div className="block lg:hidden">
-            <button className="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+            <button className="flex items-center px-3 py-2 border rounded-sm text-teal-200 border-teal-400 hover:text-white hover:border-white">
               <svg
                 className="fill-current h-3 w-3"
                 viewBox="0 0 20 20"

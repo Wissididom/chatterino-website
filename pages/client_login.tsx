@@ -57,16 +57,16 @@ const scopes = [
 
   // https://dev.twitch.tv/docs/api/reference#ban-user
   // https://dev.twitch.tv/docs/api/reference#unban-user
-  "moderator:manage:banned_users", // for ban/unban/timeout/untimeout api
+  "moderator:manage:banned_users", // for ban/unban/timeout/untimeout api & channel.moderate eventsub topic
 
   // https://dev.twitch.tv/docs/api/reference#delete-chat-messages
-  "moderator:manage:chat_messages", // for delete message api (/delete, /clear)
+  "moderator:manage:chat_messages", // for delete message api (/delete, /clear) & channel.moderate eventsub topic
 
   // https://dev.twitch.tv/docs/api/reference#update-user-chat-color
   "user:manage:chat_color", // for update user color api (/color coral)
 
   // https://dev.twitch.tv/docs/api/reference#get-chat-settings
-  "moderator:manage:chat_settings", // for roomstate api (/followersonly, /uniquechat, /slow)
+  "moderator:manage:chat_settings", // for roomstate api (/followersonly, /uniquechat, /slow) & channel.moderate eventsub topic
 
   // https://dev.twitch.tv/docs/api/reference#get-moderators
   // https://dev.twitch.tv/docs/api/reference#add-channel-moderator
@@ -101,10 +101,20 @@ const scopes = [
   "user:read:emotes", // for fetching emotes that a user can use via helix
 
   // https://dev.twitch.tv/docs/api/reference/#warn-chat-user
-  "moderator:manage:warnings", // for /warn api (and channel.moderate v2 eventsub in the future)
+  "moderator:manage:warnings", // for /warn api & channel.moderate eventsub topic
 
   // https://dev.twitch.tv/docs/api/reference/#get-followed-channels
   "user:read:follows", // for determining if the current user follows a streamer
+
+  "moderator:manage:blocked_terms", // for channel.moderate eventsub topic
+
+  "moderator:manage:unban_requests", // for channel.moderate eventsub topic
+
+  "moderator:read:moderators", // for channel.moderate eventsub topic
+
+  "moderator:read:vips", // for channel.moderate eventsub topic
+
+  "moderator:read:suspicious_users", // for channel.suspicious_user.message and channel.suspicious_user.update
 ];
 
 export default function ClientLogin() {
@@ -146,7 +156,7 @@ export default function ClientLogin() {
   const loggedIn = oauthToken && user;
 
   const loginButtonClasses =
-    "p-3 flex justify-center rounded shadow bg-purple-800 hover:bg-purple-600 hover:opacity-100 whitespace-nowrap no-underline my-5".split(
+    "p-3 flex justify-center rounded-sm shadow-sm bg-purple-800 hover:bg-purple-600 hover:opacity-100 whitespace-nowrap no-underline my-5".split(
       " "
     );
   if (loggedIn) {
@@ -186,25 +196,25 @@ export default function ClientLogin() {
             <div className="flex gap-1 align-center my-2">
               <div className="relative w-full">
                 {hidden && (
-                  <div className="absolute top-0 left-0 w-full h-full bg-red-700 rounded" />
+                  <div className="absolute top-0 left-0 w-full h-full bg-red-700 rounded-sm" />
                 )}
                 <input
                   type="text"
                   ref={dataStringRef}
                   readOnly
-                  className={`appearance-none rounded bg-gray-900 w-full overflow-hidden resize-none p-3`}
+                  className={`appearance-none rounded-sm bg-gray-900 w-full overflow-hidden resize-none p-3`}
                   value={createChatterinoDataString(oauthToken, user)}
                 />
               </div>
               <div
-                className="flex align-center h-full bg-gray-900 rounded p-3 select-none cursor-pointer hover:bg-gray-700"
+                className="flex align-center h-full bg-gray-900 rounded-sm p-3 select-none cursor-pointer hover:bg-gray-700"
                 onClick={() => setHidden((hidden) => !hidden)}
               >
                 🔎
               </div>
             </div>
             <button
-              className={`rounded w-full p-3 ${buttonColor}`}
+              className={`rounded-sm w-full p-3 ${buttonColor}`}
               onClick={handleCopyClick}
             >
               Copy
